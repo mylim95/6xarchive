@@ -1,0 +1,12 @@
+.spotlight {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(42rem circle at var(--light-x, 50vw) var(--light-y, 35vh), rgba(255, 224, 153, 0.08), transparent 60%);
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 700px) {
+  .spotlight { background: radial-gradient(25rem circle at 50% 28%, rgba(255, 224, 153, 0.07), transparent 67%); }
+}

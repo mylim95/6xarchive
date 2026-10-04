@@ -1,0 +1,26 @@
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+  border: 1px solid #6f5e43;
+  padding: .85rem 1rem;
+  color: #29241d;
+  font: .65rem var(--font-mono);
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.download b {
+  color: #95783f;
+  font-size: 1.15rem;
+  line-height: .5;
+}
+
+.download:hover,
+.download:focus-visible {
+  background: #29241d;
+  color: var(--archive-paper);
+  outline: none;
+}

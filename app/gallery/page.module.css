@@ -1,0 +1,85 @@
+.page {
+    --g-ink: #1c1a17;
+    --g-paper: #faf8f4;
+    --g-line: #e4dfd5;
+    --g-brass: #af8c50;
+    --g-muted: #8a8478;
+    background: var(--g-paper);
+    color: var(--g-ink);
+  }
+  
+  /* HEADER */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 1.75rem clamp(1.25rem, 4vw, 4.5rem);
+    background: #11110f;
+    color: rgba(238, 232, 219, 0.75);
+    font: 0.61rem var(--font-mono);
+    letter-spacing: 0.15em;
+  }
+  .header p { margin: 0; text-align: center; }
+  .wordmark, .back { color: #e8e0cf; text-decoration: none; }
+  .back { justify-self: end; color: rgba(238, 232, 219, 0.58); }
+  .back:hover, .wordmark:hover { color: var(--g-brass); }
+  
+  /* COVER */
+  .cover {
+    position: relative;
+    padding: clamp(5rem, 12vw, 9rem) clamp(1.5rem, 9vw, 10rem) clamp(4rem, 8vw, 6rem);
+    border-bottom: 1px solid var(--g-line);
+  }
+  .kicker {
+    margin: 0 0 1.6rem;
+    color: var(--g-brass);
+    font: 0.65rem var(--font-mono);
+    letter-spacing: 0.18em;
+  }
+  .cover h1 {
+    margin: 0;
+    font: 500 clamp(4.5rem, 12vw, 10rem) / 0.82 var(--font-display);
+    letter-spacing: -0.03em;
+  }
+  .coverSub {
+    max-width: 34rem;
+    margin: 2.2rem 0 0;
+    color: #55503f;
+    font: 400 1.05rem / 1.6 var(--font-display);
+  }
+  .coverFoot {
+    margin: 2.5rem 0 0;
+    color: var(--g-muted);
+    font: 0.62rem var(--font-terminal);
+    letter-spacing: 0.14em;
+  }
+  
+  /* BODY */
+  .body { padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 9vw, 10rem) clamp(6rem, 10vw, 9rem); }
+  .bodyHeading { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .label { margin: 0 0 1rem; color: #796b4b; font: 0.62rem var(--font-mono); letter-spacing: 0.15em; }
+  .bodyHeading h2 {
+    margin: 0;
+    font: 400 clamp(2rem, 4vw, 3.4rem) / 1 var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  
+  /* FOOTER */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem);
+    background: #11110f;
+    color: rgba(238, 232, 219, 0.45);
+    font-size: 0.56rem;
+  }
+  .footer p { margin: 0; }
+  .footer a { color: #e8e0cf; text-decoration: none; }
+  .footer a:hover { color: var(--g-brass); }
+  
+  @media (max-width: 460px) {
+    .header { grid-template-columns: 1fr auto; }
+    .header p { display: none; }
+    .footer { flex-direction: column; }
+  }
