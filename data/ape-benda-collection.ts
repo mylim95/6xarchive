@@ -43,7 +43,7 @@ export const products: Product[] = [
     image: "/hbc/ape-benda-collection/24-angpao-mockup.jpg",
   },
   {
-    id: "",
+    id: "ABC-004",
     name: "Coming Soon",
     merchId: "—",
     tagline: "—",
@@ -51,7 +51,7 @@ export const products: Product[] = [
     status: "Coming Soon",
   },
   {
-    id: "",
+    id: "ABC-005",
     name: "Coming Soon",
     merchId: "—",
     tagline: "—",
@@ -59,7 +59,7 @@ export const products: Product[] = [
     status: "Coming Soon",
   },
   {
-    id: "",
+    id: "ABC-006",
     name: "Coming Soon",
     merchId: "—",
     tagline: "—",
