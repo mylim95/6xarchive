@@ -1,0 +1,437 @@
+.page {
+  --black: #07070b;
+  --panel: #0d0b12;
+  --white: #f6f4f0;
+  --muted: #9c98a7;
+  --line: rgba(246, 244, 240, 0.12);
+  --purple: #8b5cf6;
+  --pink: #ff4dbd;
+  --orange: #ffb347;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 16px clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(7, 7, 11, 0.92);
+  backdrop-filter: blur(12px);
+  font: 10px/1.2 monospace;
+  letter-spacing: 0.16em;
+  color: #8f8b99;
+}
+.brand,
+.headerLink {
+  color: var(--white);
+  text-decoration: none;
+}
+.headerLink {
+  justify-self: end;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.78fr) minmax(0, 1.22fr);
+  min-height: 78vh;
+  border-bottom: 1px solid var(--line);
+}
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 8vw, 120px);
+}
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--pink);
+  font: 10px/1.2 monospace;
+  letter-spacing: 0.16em;
+}
+.wordmarkWrap {
+  width: min(320px, 70%);
+  margin-bottom: 26px;
+}
+.wordmarkWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero h1 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(38px, 5.5vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.heroText {
+  max-width: 540px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.pills {
+  display: flex;
+  gap: 8px;
+  margin-top: 28px;
+}
+.pills span {
+  padding: 8px 11px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  font: 9px monospace;
+  letter-spacing: 0.1em;
+}
+.imageFrame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #09080d;
+  min-height: 180px;
+}
+.imageFrame img {
+  object-fit: cover;
+}
+.heroImage {
+  align-self: stretch;
+  border: 0;
+  border-left: 1px solid var(--line);
+  min-height: 100%;
+}
+.heroImage img {
+  object-fit: contain;
+  padding: 24px;
+}
+.recordStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.recordStrip div {
+  padding: 20px;
+  text-align: center;
+  border-left: 1px solid var(--line);
+}
+.recordStrip div:first-child {
+  border-left: 0;
+}
+.recordStrip small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--purple);
+  font: 9px monospace;
+  letter-spacing: 0.13em;
+}
+.recordStrip strong {
+  font: 10px monospace;
+  letter-spacing: 0.05em;
+}
+.section {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: clamp(28px, 7vw, 100px);
+  padding: clamp(70px, 10vw, 140px) clamp(22px, 8vw, 140px);
+  border-bottom: 1px solid var(--line);
+}
+.sectionNo {
+  color: var(--orange);
+  font: 11px monospace;
+}
+.sectionContent {
+  max-width: 1180px;
+}
+.headingRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.6fr);
+  gap: 60px;
+  align-items: end;
+}
+.headingRow h2,
+.statusSection h2,
+.closer h2 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+.headingRow p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.wideVisual {
+  margin-top: 48px;
+  aspect-ratio: 16/7;
+}
+.darkPanel {
+  background: radial-gradient(
+      circle at 80% 20%,
+      rgba(139, 92, 246, 0.1),
+      transparent 30%
+    ),
+    var(--panel);
+}
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 38px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.featureCard {
+  min-height: 180px;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.featureCard span,
+.flowItem b,
+.processGrid span {
+  color: var(--orange);
+  font: 10px monospace;
+}
+.featureCard h3,
+.flowItem h3,
+.processGrid h3 {
+  margin: 42px 0 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.featureCard p,
+.flowItem p,
+.processGrid p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.flowGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.flowItem {
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  min-height: 150px;
+}
+.flowItem h3 {
+  margin-top: 32px;
+}
+.processMini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 34px 0;
+  color: #ddd;
+  font: 10px monospace;
+  letter-spacing: 0.1em;
+}
+.processMini i {
+  color: var(--pink);
+  font-style: normal;
+}
+.outlineButton {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border: 1px solid rgba(139, 92, 246, 0.55);
+  color: var(--white);
+  text-decoration: none;
+  font: 9px monospace;
+  letter-spacing: 0.1em;
+}
+.outlineButton:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.uiGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 48px;
+}
+.uiGrid .imageFrame:first-child {
+  min-height: 390px;
+}
+.uiLabels {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 10px;
+  color: #7f7a89;
+  font: 9px monospace;
+  letter-spacing: 0.1em;
+}
+.processVisual {
+  margin-top: 48px;
+  aspect-ratio: 16/5;
+}
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.processGrid article {
+  padding: 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  min-height: 150px;
+}
+.processGrid h3 {
+  margin-top: 26px;
+  font-size: 15px;
+}
+.statusSection {
+  padding: clamp(80px, 12vw, 160px) clamp(22px, 8vw, 140px);
+  border-bottom: 1px solid var(--line);
+  background: #09080d;
+}
+.statusSection h2 {
+  max-width: 700px;
+}
+.statusLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+}
+.statusLine span {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  font: 9px monospace;
+  letter-spacing: 0.06em;
+  color: #77727e;
+}
+.statusLine .done {
+  color: #79d9a0;
+  border-color: rgba(121, 217, 160, 0.28);
+}
+.statusLine .active {
+  color: var(--pink);
+  border-color: rgba(255, 77, 189, 0.35);
+}
+.closer {
+  padding: clamp(90px, 13vw, 180px) 24px;
+  text-align: center;
+  background: var(--white);
+  color: #09080d;
+}
+.closer .eyebrow {
+  color: #7c3aed;
+}
+.closer h2 {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.closer > p:not(.eyebrow) {
+  max-width: 520px;
+  margin: 22px auto;
+  color: #66616a;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.closer .outlineButton {
+  color: #09080d;
+  border-color: #7c3aed;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px clamp(20px, 4vw, 64px);
+  color: #68636f;
+  background: #050508;
+  font: 9px monospace;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 950px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .heroImage {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    min-height: 50vw;
+  }
+  .headingRow {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flowGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .uiGrid,
+  .uiLabels {
+    grid-template-columns: 1fr;
+  }
+  .uiGrid .imageFrame:first-child {
+    min-height: 280px;
+  }
+  .uiLabels {
+    gap: 8px;
+  }
+  .processVisual {
+    aspect-ratio: 16/8;
+  }
+}
+@media (max-width: 650px) {
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+  .header > span {
+    display: none;
+  }
+  .section {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .recordStrip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .recordStrip div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .featureGrid,
+  .flowGrid,
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+  .flowItem {
+    min-height: 0;
+  }
+  .processMini {
+    flex-wrap: wrap;
+  }
+  .footer {
+    flex-direction: column;
+  }
+  .heroCopy {
+    padding: 60px 24px;
+  }
+  .wordmarkWrap {
+    width: 260px;
+  }
+  .hero h1 {
+    font-size: 44px;
+  }
+}
