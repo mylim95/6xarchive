@@ -24,12 +24,14 @@ type Division = {
   tagline: string;
   description: string;
   closing: string;
+  href: string;
   leaves?: string[];
 };
 
 const divisions: Division[] = [
   {
     id: "DIV-01",
+    href: "/faded-archive",
     name: "FADED ARCHIVE",
     tagline: "Preserving what slowly disappears.",
     description:
@@ -39,6 +41,7 @@ const divisions: Division[] = [
   },
   {
     id: "DIV-02",
+    href: "/hbc",
     name: "HIDUP BOLA CLUB — HBC",
     tagline: "Football is more than a game. It's a culture.",
     description:
@@ -47,6 +50,7 @@ const divisions: Division[] = [
   },
   {
     id: "DIV-03",
+    href: "/breakfast-club",
     name: "BREAKFAST CLUB",
     tagline: "From the kopitiam, with love.",
     description:
@@ -55,6 +59,7 @@ const divisions: Division[] = [
   },
   {
     id: "DIV-04",
+    href: "/blesport",
     name: "BLESPORT",
     cn: "摆烂超六",
     tagline: "For those who still play, even when they've given up.",
@@ -64,6 +69,7 @@ const divisions: Division[] = [
   },
   {
     id: "DIV-05",
+    href: "/funhey-lucks",
     name: "FUNHEY LUCKS CO.",
     cn: "欢喜国粹馆",
     tagline: "Luck, games and a little bit of chaos.",
@@ -140,6 +146,7 @@ export default function AboutPage() {
               <p className={styles.recordTagline}>{div.tagline}</p>
               <p className={styles.recordCopy}>{div.description}</p>
               <p className={styles.recordClosing}>{div.closing}</p>
+              <Link className={styles.recordCta} href={div.href}>VISIT {div.name} <span aria-hidden="true">↗</span></Link>
             </div>
           </article>
         ))}

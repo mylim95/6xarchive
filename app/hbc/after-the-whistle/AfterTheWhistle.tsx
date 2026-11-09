@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function AfterTheWhistle() {
   const sceneRef = useRef<HTMLElement | null>(null);
+  const [gateActive, setGateActive] = useState(false);
 
   useEffect(() => {
     const scene = sceneRef.current;
@@ -31,84 +32,54 @@ export default function AfterTheWhistle() {
     };
   }, []);
 
+  const approachGate = () => {
+    setGateActive(true);
+    window.setTimeout(() => setGateActive(false), 1200);
+  };
+
   return (
     <main className={styles.page}>
-      <section className={styles.hero} ref={sceneRef} aria-labelledby="title">
-        <div className={styles.stadium} aria-hidden="true">
-          <div className={styles.architecture} />
-          <div className={styles.seats} />
+      <section
+        className={[styles.hero, gateActive && styles.gateActive].filter(Boolean).join(" ")}
+        ref={sceneRef}
+        aria-labelledby="title"
+      >
+        <div className={styles.scene} aria-hidden="true">
+          <video className={styles.stadium} src="/hbc/after-the-whistle/landing-video.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" />
+          <img className={styles.smoke} src="/hbc/after-the-whistle/mist.png" alt="" />
+          <div className={styles.rain} />
           <div className={styles.lightSweep} />
-          <div className={styles.goal} />
-          <div className={styles.pitch}>
-            <span className={styles.centerLine} />
-            <span className={styles.centerCircle} />
-            <span className={styles.touchline} />
+          <div className={styles.ballRig}>
+            <img className={styles.football} src="/hbc/after-the-whistle/football-crest.png" alt="" />
           </div>
-          <div className={styles.mistBack} />
-          <div className={styles.mistMid} />
-          <div className={styles.mistFront} />
-          <div className={styles.orb}>
-            <span className={styles.orbSeams} />
-            <span className={styles.orbHighlight} />
-          </div>
-          <div className={styles.grain} />
+          <div className={styles.vignette} />
         </div>
 
         <header className={styles.header}>
-          <Link className={styles.archive} href="/" aria-label="Back to 6XARCHIVE">
-            6XARCHIVE
+          <Link className={styles.brand} href="/hbc" aria-label="HBC — Hidup Bola Club">
+
+              <img src="/hbc/HB-mascot-white.png" alt="" width={60} height={60} />
+
+
           </Link>
-          <div className={styles.division}>DIV-02 <i /> HBC / AFTER THE WHISTLE</div>
-          <nav className={styles.nav} aria-label="Page navigation">
-            <a href="#idea">THE IDEA</a>
-            <a href="#threshold">ENTER <span aria-hidden="true">↗</span></a>
-          </nav>
+
         </header>
 
-        <div className={styles.brandMark}>
-          <span className={styles.badge}>
-            <img src="/hbc/HB-badge-trans.png" alt="Hidup Bola Club badge" width={1933} height={1932} />
-          </span>
-          <span>HIDUP BOLA CLUB</span>
-        </div>
-
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}><span /> THE GAME ENDS. THE STORY DOESN&apos;T.</p>
-          <h1 id="title">AFTER THE<br /><em>WHISTLE</em></h1>
+          <h1 id="title"><span>AFTER</span><span className={styles.titleSmall}>THE</span><span>WHISTLE</span></h1>
           <p className={styles.tagline}>RIVALS ON THE FIELD. HUMAN AFTER.</p>
-          <a className={styles.enterButton} href="#threshold">
-            <span>APPROACH THE GATE</span><b aria-hidden="true">↗</b>
-          </a>
+          <button className={styles.enterButton} type="button" onClick={approachGate}>
+            <span>WAIT AT THE GATE</span>
+            <span className={styles.arrow} aria-hidden="true">→</span>
+          </button>
         </div>
 
-        <div className={styles.edgeNote}>NO ENEMY IS FOREVER</div>
-        <a className={styles.scrollCue} href="#idea" aria-label="Scroll to the idea">
-          <span>SCROLL TO THE OTHER SIDE</span><i aria-hidden="true" />
+        <p className={styles.worldStatus2} id="gate" aria-live="polite">THE WORLD IS NOT OPEN YET</p>
+        <p className={styles.worldStatus} id="gate" aria-live="polite">Represented by Hidup Bola Club</p>
+        <a className={styles.scrollCue} href="#gate" aria-label="Scroll to the gate">
+          <span aria-hidden="true">↓</span>
         </a>
       </section>
-
-      <section className={styles.idea} id="idea" aria-labelledby="idea-title">
-        <p className={styles.sectionLabel}>HBC / THE SPACE BETWEEN SIDES</p>
-        <h2 id="idea-title">Ninety minutes can divide us.<br /><em>What happens after is ours.</em></h2>
-        <a className={styles.thresholdLink} href="#threshold">
-          STAY CLOSE TO THE GATE <span aria-hidden="true">↓</span>
-        </a>
-      </section>
-
-      <section className={styles.threshold} id="threshold" aria-label="The world is not open yet">
-        <div className={styles.thresholdGlow} aria-hidden="true" />
-        <span className={styles.thresholdMark}>
-          <img src="/hbc/HB-badge-trans.png" alt="" width={1933} height={1932} />
-        </span>
-        <p>THE WORLD IS NOT OPEN YET</p>
-        <span className={styles.thresholdLine} aria-hidden="true" />
-      </section>
-
-      <footer className={styles.footer}>
-        <Link href="/">6XARCHIVE</Link>
-        <span>DIV-02 / HIDUP BOLA CLUB</span>
-        <Link href="/hbc">BACK TO HBC ↗</Link>
-      </footer>
     </main>
   );
 }
