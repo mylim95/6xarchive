@@ -67,6 +67,9 @@ export default function HbcPage() {
             coffee, adventure, gaming and beyond. HBC is not just about playing bola.
             It&apos;s about living it.
           </p>
+          <Link href="/hbc/caffeine-dose" className={styles.coffeeLink}>
+            CAFFEINE DOSE / BREW BY APES ↗
+          </Link>
         </div>
       </section>
 

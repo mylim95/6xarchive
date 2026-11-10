@@ -127,6 +127,8 @@
   letter-spacing: -0.02em;
 }
 .lede { max-width: 38rem; margin: 1.6rem 0 0; color: #4c4636; font-size: 0.95rem; line-height: 1.85; }
+.coffeeLink { display: inline-block; margin-top: 1.8rem; padding-bottom: .4rem; border-bottom: 1px solid rgba(122, 107, 69, .45); color: #6f5935; text-decoration: none; font: .62rem var(--font-mono); letter-spacing: .12em; transition: color 180ms ease, border-color 180ms ease; }
+.coffeeLink:hover { color: #a84a2e; border-color: #a84a2e; }
 
 /* CREST */
 .crest { padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 6vw, 6rem); background: #f6f1e6; }
