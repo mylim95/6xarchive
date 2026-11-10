@@ -158,6 +158,125 @@
 .plateId { margin: 0 0 0.3rem; color: var(--h-brass); font: 0.6rem var(--font-terminal); letter-spacing: 0.1em; }
 .crestPiece figcaption p:last-child { margin: 0; font: 0.75rem var(--font-mono); letter-spacing: 0.06em; color: #423d31; }
 
+
+.exhibitionPreview {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 680px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 40%,
+      rgba(166, 135, 80, 0.18),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #242321,
+      #171612
+    );
+
+  border-top: 1px solid rgba(166, 135, 80, 0.2);
+  border-bottom: 1px solid rgba(166, 135, 80, 0.2);
+}
+
+.exhibitionAtmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 219, 160, 0.16),
+      transparent 48%
+    );
+
+  pointer-events: none;
+}
+
+.exhibitionPreviewContent {
+  max-width: 800px;
+  padding: 100px 24px;
+}
+
+.exhibitionEyebrow {
+  color: var(--h-brass);
+  font: 0.65rem var(--font-mono);
+  letter-spacing: 0.2em;
+}
+
+.exhibitionPreview h2 {
+  margin: 30px 0;
+  color: var(--h-ivory);
+  font: 500 clamp(3.5rem, 9vw, 7rem) /
+    0.95 var(--font-display);
+  letter-spacing: -0.04em;
+}
+
+.exhibitionPreview h2 em {
+  color: var(--h-brass);
+}
+
+.exhibitionPreview p {
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--h-paper);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.exhibitionCTA {
+  display: inline-flex;
+  align-items: center;
+  gap: 35px;
+  margin-top: 40px;
+  padding: 17px 25px;
+
+  border: 1px solid var(--h-brass);
+  color: var(--h-brass);
+  text-decoration: none;
+
+  font: 0.7rem var(--font-mono);
+  letter-spacing: 0.14em;
+
+  transition: all 0.4s ease;
+}
+
+.exhibitionCTA:hover {
+  background: var(--h-brass);
+  color: #171612;
+  box-shadow: 0 0 35px rgba(166, 135, 80, 0.25);
+}
+
+.exhibitionNumber {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  width: 100%;
+
+  color: var(--h-muted);
+  font: 0.6rem var(--font-mono);
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 760px) {
+  .exhibitionPreview {
+    min-height: 520px;
+  }
+
+  .exhibitionPreviewContent {
+    padding: 80px 20px;
+  }
+}
+
+
 /* SQUAD */
 .squad {
   position: relative;

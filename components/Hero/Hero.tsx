@@ -116,11 +116,11 @@ export default function Hero() {
         </div>
 
         <ul className={styles.houseList}>
-          <li>Faded Archive</li>
-          <li>Hidup Bola Club</li>
-          <li>Breakfast Club</li>
-          <li>BLesport</li>
-          <li>Funhey Lucks Co.</li>
+          <li><a href="/faded-archive">Faded Archive</a></li>
+          <li><a href="/hbc">Hidup Bola Club</a></li>
+          <li><a href="/breakfast-club">Breakfast Club</a></li>
+          <li><a href="/blesport">BLesport</a></li>
+          <li><a href="/funhey-lucks">Funhey Lucks Co.</a></li>
         </ul>
       </section>
 

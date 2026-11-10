@@ -1,0 +1,290 @@
+.page {
+  --night: #050606;
+  --ivory: #eee9df;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--ivory);
+}
+
+.hero {
+  --pointer-x: 0;
+  --pointer-y: 0;
+  position: relative;
+  height: 100svh;
+  min-height: 38rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: #050606;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #050606;
+  pointer-events: none;
+}
+
+.stadium {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.82) contrast(1.08);
+  transition: filter 700ms ease;
+}
+
+.gateActive .stadium { filter: brightness(1.02) contrast(1.1); }
+
+.smoke {
+  position: absolute;
+  left: -7%;
+  bottom: -13%;
+  width: 114%;
+  height: 57%;
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 0.47;
+  mix-blend-mode: screen;
+  animation: smokeDrift 30s ease-in-out infinite alternate;
+}
+
+.rain {
+  position: absolute;
+  z-index: 1;
+  inset: -60% -25%;
+  opacity: .12;
+  pointer-events: none;
+  transform: skewX(-10deg);
+  background-image: repeating-linear-gradient(104deg, transparent 0 36px, rgba(194, 208, 216, .3) 37px 38px, transparent 39px 85px);
+  animation: rainFall .48s linear infinite;
+}
+.rain::after {
+  position: absolute;
+  inset: -20% 0 0 14%;
+  content: "";
+  opacity: .36;
+  background-image: repeating-linear-gradient(104deg, transparent 0 54px, rgba(202, 214, 221, .24) 55px 56px, transparent 57px 129px);
+  animation: rainFall .78s linear infinite;
+}
+
+.lightSweep {
+  position: absolute;
+  top: 5%;
+  bottom: 12%;
+  left: -72%;
+  width: 52%;
+  opacity: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(186,166,136,.035) 48%, rgba(186,166,136,.1) 50%, transparent 64%);
+  transform: skewX(-9deg);
+  animation: lightSweep 28s ease-in-out 2s infinite;
+}
+.gateActive .lightSweep { animation-duration: 5s; }
+
+.ballRig {
+  position: absolute;
+  z-index: 1;
+  top: 2.5%;
+  left: 50%;
+  width: clamp(16rem, 27vw, 28rem);
+  aspect-ratio: 1;
+  transform: translate3d(calc(-50% + var(--pointer-x) * -8px), calc(var(--pointer-y) * -7px), 0);
+}
+
+.football {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(.72) contrast(1.08) saturate(.82);
+  animation: ballFloat 8s ease-in-out infinite;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.16), transparent 23% 69%, rgba(0,0,0,.29)),
+    linear-gradient(90deg, rgba(0,0,0,.15), transparent 21% 79%, rgba(0,0,0,.15));
+}
+
+.header {
+  position: absolute;
+  z-index: 4;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 1.6vw, 2.6rem) clamp(1.5rem, 5.5vw, 5.8rem);
+}
+
+.brand { display: inline-flex; align-items: center; gap: .85rem; color: var(--ivory); text-decoration: none; }
+.badge { display: grid; width: clamp(2.6rem, 3.2vw, 3.25rem); aspect-ratio: 1; place-items: center; overflow: hidden; border-radius: 50%; background: rgba(238,233,223,.96); }
+.badge img { display: block; width: 90%; height: 90%; object-fit: contain; }
+.brandName { font: 500 clamp(1.2rem, 1.7vw, 1.75rem)/1 var(--font-mono); letter-spacing: .27em; }
+
+.nav { display: flex; align-items: center; gap: clamp(2rem, 4vw, 4.4rem); }
+.nav a, .nav button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba(238,233,223,.82);
+  text-decoration: none;
+  font: 500 .68rem/1 var(--font-mono);
+  letter-spacing: .24em;
+  cursor: pointer;
+  transition: color 220ms ease;
+}
+.nav a:hover, .nav button:hover { color: #fff8eb; }
+
+.heroCopy {
+  position: absolute;
+  z-index: 2;
+  top: 44%;
+  left: 50%;
+  width: min(92%, 78rem);
+  text-align: center;
+  transform: translate3d(calc(-50% + var(--pointer-x) * 3px), calc(var(--pointer-y) * 2px), 0);
+  animation: arrive 1.25s cubic-bezier(.2,.72,.24,1) both;
+}
+.heroCopy h1 {
+  display: flex;
+  justify-content: center;
+  gap: .2em;
+  margin: 0;
+  color: #e9e2d7;
+  font: 500 clamp(4.2rem, 7.6vw, 7.9rem)/.88 var(--font-display);
+  letter-spacing: -.045em;
+  transform: scaleX(.74);
+  white-space: nowrap;
+  text-shadow: 0 .12rem 1.6rem rgba(0,0,0,.72);
+}
+.titleSmall { align-self: center; font-size: .48em; letter-spacing: -.02em; }
+.tagline {
+  margin: .5rem 0 0;
+  color: rgba(238,233,223,.78);
+  font: 500 clamp(.61rem,.86vw,.78rem)/1.4 var(--font-mono);
+  letter-spacing: .39em;
+}
+.enterButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  min-width: 19rem;
+  margin-top: 1.2rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(179,151,111,.68);
+  background: rgba(4,5,5,.32);
+  color: #eee6d8;
+  font: 500 .68rem/1 var(--font-mono);
+  letter-spacing: .24em;
+  cursor: pointer;
+  transition: background 240ms ease, border-color 240ms ease, transform 240ms ease;
+}
+.enterButton:hover { border-color: rgba(224,188,136,.92); background: rgba(20,14,12,.68); transform: translateY(-2px); }
+.arrow { color: #d3442f; font: 400 1.15rem/.8 var(--font-body); transition: transform 240ms ease; }
+.enterButton:hover .arrow { transform: translate(3px,-2px); }
+
+.worldStatus {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 5.2%;
+  left: 1rem;
+  margin: 0;
+  color: rgba(238,233,223,.77);
+  text-align: center;
+  font: 500 .68rem/1.5 var(--font-mono);
+  letter-spacing: .34em;
+  transition: color 250ms ease, text-shadow 250ms ease;
+}
+.worldStatus2 {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 8%;
+  left: 1rem;
+  margin: 0;
+  color: rgba(238,233,223,.77);
+  text-align: center;
+  font: 500 .68rem/1.5 var(--font-mono);
+  letter-spacing: .34em;
+  transition: color 250ms ease, text-shadow 250ms ease;
+}
+.gateActive .worldStatus .worldStatus2 { color: #f0c4a3; text-shadow: 0 0 1rem rgba(186,68,45,.68); }
+
+.scrollCue {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.2rem;
+  left: 50%;
+  color: rgba(238,233,223,.75);
+  text-decoration: none;
+  font: 400 1rem/1 var(--font-body);
+  transform: translateX(-50%);
+  animation: cue 2s ease-in-out infinite;
+}
+
+@keyframes smokeDrift {
+  from { transform: translate3d(-2.2%, .5%, 0) scale(1.02); }
+  to { transform: translate3d(2.2%, -1.5%, 0) scale(1.06); }
+}
+@keyframes rainFall {
+  from { background-position: 0 0; }
+  to { background-position: -1.5rem 62vh; }
+}
+@keyframes lightSweep {
+  0%,22% { left: -72%; opacity: 0; }
+  32% { opacity: .65; }
+  68% { opacity: .35; }
+  83%,100% { left: 125%; opacity: 0; }
+}
+@keyframes ballFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-.65rem); }
+}
+@keyframes arrive {
+  from { opacity: 0; translate: 0 .8rem;  }
+  to { opacity: 1; translate: 0 0;  }
+}
+@keyframes cue {
+  0%,100% { transform: translate(-50%,-.15rem); opacity: .45; }
+  50% { transform: translate(-50%,.2rem); opacity: .9; }
+}
+
+@media (max-width: 760px) {
+  .hero { min-height: 38rem; }
+  .header { padding: 1.25rem; }
+  .brand { gap: .6rem; }
+  .badge { width: 2.5rem; }
+  .brandName { font-size: 1.05rem; }
+  .nav { gap: 1.4rem; }
+  .nav a, .nav button { font-size: .58rem; letter-spacing: .16em; }
+  .ballRig { top: 12%; width: clamp(12rem,42vw,19rem); }
+  .heroCopy { top: 43%; width: 96%; }
+  .heroCopy h1 { flex-direction: column; gap: .03em; font-size: clamp(3.6rem,13vw,6rem); }
+  .titleSmall { align-self: center; font-size: .42em; }
+  .tagline { margin-top: .9rem; font-size: .56rem; letter-spacing: .22em; }
+  .enterButton { min-width: 16rem; margin-top: 1.3rem; }
+  .worldStatus { bottom: 8%; font-size: .58rem; letter-spacing: .2em; }
+}
+@media (max-width: 390px) {
+  .badge { width: 2.2rem; }
+  .brandName { font-size: .9rem; }
+  .nav { gap: 1rem; }
+  .nav a, .nav button { font-size: .52rem; }
+  .heroCopy { top: 44%; }
+  .heroCopy h1 { font-size: 3.3rem; }
+  .enterButton { min-width: 14rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .smoke, .rain, .rain::after, .lightSweep, .football, .heroCopy, .scrollCue { animation: none !important; }
+  .enterButton, .arrow, .nav a, .nav button { transition: none; }
+}

@@ -342,3 +342,6 @@
   .hbc { grid-template-columns: 1fr; }
   .hbcPreview { order: -1; width: 9rem; margin: 0 auto; }
 }
+
+.houseList a { color: inherit; text-decoration: none; display: block; }
+.houseList a:hover, .houseList a:focus-visible { color: var(--brass); outline: none; }

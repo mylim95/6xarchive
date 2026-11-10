@@ -265,3 +265,5 @@
   .footer { flex-direction: column; }
   .branch { flex: 0 0 100%; }
 }
+.recordCta { display: inline-flex; gap: .65rem; align-items: center; margin-top: 1.6rem; padding-bottom: .4rem; border-bottom: 1px solid rgba(198,163,98,.55); color: #ece5d5; font: .64rem var(--font-mono); letter-spacing: .12em; text-decoration: none; transition: color 180ms ease, border-color 180ms ease; }
+.recordCta:hover, .recordCta:focus-visible { color: #c6a362; border-color: currentColor; outline: none; }

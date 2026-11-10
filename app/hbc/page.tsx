@@ -70,6 +70,42 @@ export default function HbcPage() {
         </div>
       </section>
 
+
+
+  {/*Exhibition introduction section */}
+  <section className={styles.exhibitionPreview}>
+    <div className={styles.exhibitionAtmosphere} />
+
+    <div className={styles.exhibitionPreviewContent}>
+      <span className={styles.exhibitionEyebrow}>
+        HBC PRESENTS · SPECIAL EXHIBITION
+      </span>
+
+      <h2>
+        GUARDIANS
+        <br />
+        <em>OF ASIA</em>
+      </h2>
+
+      <p>
+        An artistic journey through the guardians,
+        legends and cultural heritage of Asia.
+      </p>
+
+      <Link
+        href="#"
+        className={styles.exhibitionCTA}
+      >
+        Coming Soon
+        <span>↗</span>
+      </Link>
+    </div>
+
+    <span className={styles.exhibitionNumber}>
+      EXHIBITION NO. 001 — 2026
+    </span>
+  </section>
+
       {/* THE CREST */}
       <section className={styles.crest} aria-labelledby="crest-title">
         <div className={styles.crestHeading}>
