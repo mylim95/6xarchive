@@ -16,6 +16,7 @@ const publicRoutes = [
   "/hbc/ape-benda-collection",
   "/hbc/caffeine-dose",
   "/hbc/guardians-of-asia",
+  "/hbc/guardians-of-asia/exhibition",
   "/hbc/pixel-apes",
   "/hbc/pixel-apes/cutly",
   "/hbc/wanderland",
