@@ -124,31 +124,43 @@ export default function Hero() {
         </ul>
       </section>
 
-      <section id="div-02" className={styles.hbc} aria-labelledby="hbc-title">
-        <div className={styles.hbcNoise} aria-hidden="true" />
-        <div className={styles.hbcHeading}>
-          <p className={styles.sectionLabel}>Our Club</p>
-          <p className={styles.catalogue}>DIV-02 / HIDUP BOLA CLUB</p>
+      <section id="member-club" className={styles.memberClub} aria-labelledby="mac-title">
+        <div className={styles.memberClubNoise} aria-hidden="true" />
+        <div className={styles.memberClubHeading}>
+          <p className={styles.sectionLabel}>Our Member Club</p>
+          <p className={styles.catalogue}>MAC / MAMAK ARCHIVE CLUB</p>
         </div>
 
-        <div className={styles.hbcIntro}>
-          <h2 id="hbc-title">HIDUP BOLA<br /><em>CLUB</em></h2>
-          <p className={styles.hbcCopy}>
-            Football is more than a game. It&apos;s a culture. Born in Batu Pahat, Johor —
-            friendship first, football second.
+        <div className={styles.memberClubIntro}>
+          <h2 id="mac-title" className={styles.memberClubWordmark}>
+            <img src="/mac.png" alt="MAC — Mamak Archive Club" width={1792} height={1024} />
+          </h2>
+          <p className={styles.memberClubCopy}>
+            Mamak Archive Club keeps the character of the kopitiam close — its familiar signs,
+            everyday objects, shared tables and rituals, gathered into a living cultural archive.
           </p>
-          <a href="/hbc" className={styles.hbcLink}>
-            ENTER HBC <b aria-hidden="true">↗</b>
-          </a>
+          <p className={styles.memberClubNote}>A NEW MEMBER OF THE HOUSE</p>
         </div>
 
-        <div className={styles.hbcPreview}>
-          <img
-            src="/hbc/HB-mascot-white.png"
-            alt="HBC club badge"
-            width={1933}
-            height={1932}
-          />
+        <div className={styles.memberClubPreview}>
+          <div className={styles.memberClubTicket}>
+            <div className={`${styles.memberClubTicketFace} ${styles.memberClubTicketFront}`}>
+              <p className={styles.memberClubTicketLabel}>MEMBER PASS <span>MAC / 6X</span></p>
+              <img src="/mac.png" alt="" width={1792} height={1024} />
+              <div className={styles.memberClubTicketFooter}>
+                <span>KOPITIAM CULTURE ARCHIVE</span>
+                <span className={styles.memberClubTicketSlashes} aria-hidden="true">////</span>
+              </div>
+            </div>
+            <div className={`${styles.memberClubTicketFace} ${styles.memberClubTicketBack}`} aria-hidden="true">
+              <p className={styles.memberClubTicketLabel}>MAMAK ARCHIVE CLUB <span>6XARCHIVE</span></p>
+              <p className={styles.memberClubTicketMessage}>A place for the stories, objects and rituals found around the kopitiam table.</p>
+              <div className={styles.memberClubTicketFooter}>
+                <span>MADE FOR THE EVERYDAY ARCHIVE</span>
+                <span className={styles.memberClubTicketSlashes}>////</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

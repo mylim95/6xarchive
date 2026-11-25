@@ -1,0 +1,133 @@
+.page {
+  --paper: #efe8d9;
+  --acid: #d7fb35;
+  --pink: #df40b5;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #11100f;
+  color: var(--paper);
+}
+.wallTexture {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background-image: url("/hbc/after-the-whistle/intro-bg.jpg"), repeating-linear-gradient(0deg, transparent 0 4px, rgba(255,255,255,.025) 5px 6px);
+  background-size: cover, auto;
+  background-position: center top;
+  background-attachment: fixed;
+  mask-image: linear-gradient(to bottom, #000 0, transparent 68rem);
+}
+.header, .hero, .roster, .footer { position: relative; z-index: 1; }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5.5rem;
+  padding: .8rem clamp(1.2rem, 5vw, 5rem);
+  border-bottom: 1px solid rgba(239,232,217,.18);
+  background: rgba(10,9,10,.76);
+  font-family: var(--font-mono);
+}
+.brand { display: flex; align-items: center; gap: .75rem; color: var(--paper); text-decoration: none; font-size: .62rem; letter-spacing: .18em; }
+.brand img { width: 2.7rem; height: 2.7rem; object-fit: contain; }
+.header nav { display: flex; align-items: center; gap: clamp(1rem,3vw,3rem); font-size: .57rem; letter-spacing: .15em; }
+.header nav a { color: var(--paper); text-decoration: none; }
+.header nav span { color: rgba(239,232,217,.5); }
+.hero {
+  display: flex;
+  min-height: min(70vh, 45rem);
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem clamp(1.5rem, 10vw, 10rem) 5rem;
+  overflow: hidden;
+  background: linear-gradient(90deg,rgba(10,9,10,.92),rgba(10,9,10,.57) 58%,rgba(10,9,10,.13)), url("/hbc/after-the-whistle/intro-bg.jpg") center 44% / cover;
+  border-bottom: 5px solid var(--acid);
+}
+.hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: -0;
+  content: "";
+  pointer-events: none;
+  background-image: repeating-linear-gradient(115deg, transparent 0 35px, rgba(255,255,255,.025) 36px 37px, transparent 38px 80px);
+}
+.sprayTag, .eyebrow, .legend, .identityLabel, .signatureLabel, .tag, .number, .downCue { font-family: var(--font-mono); font-weight: 600; }
+.sprayTag { width: fit-content; margin: 0 0 1.15rem; padding: .45rem .7rem; transform: rotate(-2deg); background: var(--pink); color: #130d12; font-size: .62rem; letter-spacing: .15em; }
+.hero h1 { position: relative; z-index: 1; margin: 0; color: var(--paper); font: 900 clamp(5rem,14vw,12rem)/.72 var(--font-display); letter-spacing: -.075em; text-transform: uppercase; text-shadow: 5px 5px 0 #171316, 9px 9px 0 rgba(0,0,0,.54); }
+.hero h1 em { color: var(--acid); font-style: normal; }
+.heroCopy { position: relative; z-index: 1; max-width: 29rem; margin: 2.4rem 0 0; color: rgba(239,232,217,.86); font: 500 clamp(.95rem,1.5vw,1.2rem)/1.65 var(--font-mono); text-transform: uppercase; }
+.heroMark { position: absolute; right: 8%; bottom: 15%; color: rgba(223,64,181,.58); font: 900 clamp(1.6rem,4vw,3.6rem)/.78 var(--font-display); letter-spacing: -.04em; text-align: right; transform: rotate(-8deg); }
+.downCue { position: absolute; right: clamp(1.5rem,5vw,5rem); bottom: 1.5rem; color: var(--acid); font-size: .55rem; letter-spacing: .18em; }
+.roster { padding: clamp(3.5rem,7vw,7rem) clamp(1.2rem,6vw,6rem) 6rem; background: linear-gradient(180deg,rgba(17,16,15,.98),rgba(17,16,15,.94)); }
+.sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin: 0 auto 2.5rem; max-width: 90rem; }
+.eyebrow { margin: 0 0 .55rem; color: var(--pink); font-size: .62rem; letter-spacing: .21em; }
+.sectionHeading h2 { margin: 0; font: 600 clamp(2.7rem,6vw,5.5rem)/.95 var(--font-display); letter-spacing: -.055em; }
+.legend { margin: 0 0 .25rem; color: rgba(239,232,217,.48); font-size: .58rem; letter-spacing: .15em; }
+.legend span { color: var(--acid); }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(1rem,2vw,1.8rem); max-width: 90rem; margin: clamp(3rem,6vw,6rem) auto 0; align-items: start; }
+.card { min-width: 0; border: 1px solid rgba(239,232,217,.22); background: #201d1d; box-shadow: 7px 7px 0 rgba(0,0,0,.55); transition: transform 220ms ease, border-color 220ms ease; }
+.card:nth-child(3n + 2) { transform: translateY(1.3rem) rotate(.3deg); }
+.card:nth-child(3n + 1) { transform: rotate(-.25deg); }
+.card:hover { z-index: 2; border-color: var(--acid); transform: translateY(-5px) rotate(0); }
+.portrait { position: relative; aspect-ratio: 4 / 4.4; overflow: hidden; background: radial-gradient(ellipse at 50% 55%,#71325f 0,#321d36 47%,#171517 83%); }
+.portrait::after { position: absolute; inset: 0; content: ""; pointer-events: none; background: linear-gradient(180deg,rgba(0,0,0,.08),transparent 42%,rgba(0,0,0,.4)); mix-blend-mode: multiply; }
+.portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: saturate(.83) contrast(1.08); transition: transform 450ms cubic-bezier(.2,.72,.24,1); }
+.card:hover .portrait img { transform: scale(1.04); }
+.number { position: absolute; z-index: 1; top: .85rem; left: .85rem; display: grid; width: 2.45rem; aspect-ratio: 1; place-items: center; border: 1px solid var(--acid); background: rgba(15,14,14,.82); color: var(--acid); font-size: .7rem; transform: rotate(-5deg); }
+.tag { position: absolute; z-index: 1; right: .75rem; bottom: .75rem; padding: .45rem .6rem; background: var(--acid); color: #11100f; font-size: .5rem; letter-spacing: .1em; transform: rotate(2deg); }
+.cardCopy { padding: 1.15rem 1.2rem 1.4rem; }
+.identityLabel, .signatureLabel { margin: 0; color: #ed77ca; font-size: .52rem; letter-spacing: .16em; }
+.cardCopy h3 { margin: .4rem 0 1.25rem; color: var(--paper); font: 600 clamp(1.7rem,2.5vw,2.7rem)/1 var(--font-display); letter-spacing: -.035em; }
+.signatureLabel { color: var(--acid); }
+.signature { margin: .45rem 0 0; color: rgba(239,232,217,.74); font: 400 .85rem/1.55 var(--font-body); }
+.pendingArt { display: flex; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: radial-gradient(ellipse,rgba(223,64,181,.32),transparent 60%), repeating-linear-gradient(135deg,transparent 0 16px,rgba(215,251,53,.12) 17px 18px,transparent 19px 34px); color: var(--acid); }
+.pendingArt span:first-child { font: 900 clamp(4rem,7vw,7rem)/.8 var(--font-display); letter-spacing: -.08em; -webkit-text-stroke: 1px var(--acid); color: transparent; transform: rotate(-8deg); }
+.pendingArt span:last-child { padding: .4rem .6rem; background: #171414; color: var(--paper); font: 600 .6rem/1.2 var(--font-mono); letter-spacing: .2em; text-align: center; transform: rotate(3deg); }
+.artistFeature { display: flex; width: 100vw; flex-direction: column; margin: 0 0 0 calc(50% - 50vw); min-width: 0; overflow: hidden; border-block: 1px solid rgba(239,232,217,.3); background: #201d1d; }
+.artistPortrait { position: relative; width: 100%; height: min(72svh, 58rem); min-height: 30rem; overflow: hidden; background: #20121f; }
+.artistPortrait::after { position: absolute; inset: 0; content: ""; pointer-events: none; background: linear-gradient(0deg,rgba(0,0,0,.56),transparent 43%),linear-gradient(90deg,transparent 65%,rgba(0,0,0,.18)); }
+.artistPortrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 38%; filter: saturate(.94) contrast(1.07); }
+.featureStamp { position: absolute; z-index: 1; top: 1rem; left: 1rem; padding: .5rem .65rem; border: 1px solid var(--acid); background: rgba(15,14,14,.82); color: var(--acid); font: 600 .58rem/1.25 var(--font-mono); letter-spacing: .12em; transform: rotate(-4deg); }
+.featureTag { position: absolute; z-index: 1; right: .9rem; bottom: 1rem; padding: .55rem .7rem; background: var(--pink); color: #130d12; font: 700 .56rem/1 var(--font-mono); letter-spacing: .13em; transform: rotate(2deg); }
+.artistCollective { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0 clamp(1rem,3vw,3rem); padding: clamp(1.5rem,4vw,4rem) clamp(1.2rem,7vw,7rem); }
+.artistCollective > .identityLabel, .collectiveTitle { grid-column: 1 / -1; }
+.collectiveTitle { margin: .5rem 0 1.25rem; color: var(--acid); font: 600 clamp(1.8rem,3vw,3.25rem)/.9 var(--font-display); letter-spacing: -.045em; }
+.collectiveMember { display: grid; grid-template-columns: 2.2rem 1fr; align-content: start; gap: .65rem; padding: 1.1rem 0; border-top: 1px solid rgba(239,232,217,.2); }
+.collectiveNumber { display: grid; width: 1.9rem; height: 1.9rem; place-items: center; border: 1px solid var(--acid); color: var(--acid); font: 600 .57rem/1 var(--font-mono); transform: rotate(-4deg); }
+.collectiveTag { margin: 0 0 .2rem; color: #ed77ca; font: 600 .48rem/1.3 var(--font-mono); letter-spacing: .14em; }
+.collectiveMember h4 { margin: 0; color: var(--paper); font: 600 clamp(1.25rem,1.8vw,1.9rem)/1 var(--font-display); letter-spacing: -.025em; }
+.collectiveSignature { margin: .35rem 0 0; color: rgba(239,232,217,.72); font: 400 .75rem/1.45 var(--font-body); }
+.footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.2rem,5vw,5rem); border-top: 1px solid rgba(239,232,217,.2); background: #0b0a0a; color: rgba(239,232,217,.55); font: 500 .55rem/1.4 var(--font-mono); letter-spacing: .15em; }
+.footer a { color: var(--paper); text-decoration: none; }
+@media (max-width: 1100px) { .hero { min-height: 60vh; } }
+@media (max-width: 600px) {
+  .header { min-height: 4.5rem; padding-inline: 1rem; }
+  .brand { gap: .45rem; font-size: .5rem; letter-spacing: .12em; }
+  .brand img { width: 2.25rem; height: 2.25rem; }
+  .header nav { gap: 0; }
+  .header nav span { display: none; }
+  .header nav a { font-size: .52rem; }
+  .hero { min-height: 58vh; padding: 4rem 1.35rem; background-position: 38% center; }
+  .hero h1 { font-size: clamp(4.3rem,19vw,7rem); }
+  .heroCopy { max-width: 19rem; margin-top: 1.8rem; font-size: .85rem; }
+  .heroMark { right: 1rem; bottom: 12%; font-size: 1.6rem; }
+  .downCue { right: auto; left: 1.4rem; font-size: .48rem; }
+  .roster { padding: 3.5rem 1rem 4rem; }
+  .sectionHeading { align-items: start; flex-direction: column; margin-bottom: 1.6rem; }
+  .legend { font-size: .5rem; }
+  .grid { grid-template-columns: minmax(0,22rem); justify-content: center; gap: 1.25rem; }
+  .artistPortrait { height: 48svh; min-height: 18rem; }
+  .artistCollective { grid-template-columns: 1fr; padding: 1.2rem; }
+  .artistCollective > .identityLabel, .collectiveTitle { grid-column: auto; }
+  .collectiveMember { grid-template-columns: 2.2rem 1fr; }
+  .collectiveTitle { font-size: 2.4rem; }
+  .card:nth-child(n) { transform: none; }
+  .card:hover { transform: translateY(-3px); }
+  .portrait { aspect-ratio: 1 / 1; }
+  .cardCopy h3 { font-size: 2rem; }
+  .footer { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) { .card, .portrait img { transition: none; } }

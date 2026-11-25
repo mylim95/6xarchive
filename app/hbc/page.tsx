@@ -8,6 +8,49 @@ export const metadata: Metadata = {
   description: "Hidup Bola Club — friendship, loyalty and mantap, born in Batu Pahat, Johor.",
 };
 
+const subBrands = [
+  {
+    number: "01",
+    name: "Ape Benda Collection",
+    kind: "MERCHANT SHOP",
+    description: "Everyday HBC objects. Buatan Ape. 100% Lokal.",
+    image: "/hbc/abc-flag.png",
+    href: "/hbc/ape-benda-collection",
+  },
+  {
+    number: "02",
+    name: "Ape Atlas",
+    kind: "TRAVEL & CULTURE",
+    description: "One ape, collecting the character of every city.",
+    image: "/hbc/ape-atlas-flag.png",
+    href: "/hbc/ape-atlas",
+  },
+  {
+    number: "03",
+    name: "Caffeine Dose",
+    kind: "COFFEE CULTURE",
+    description: "Good coffee for the long talk before and after the game.",
+    image: "/hbc/caffeine-dose-flag.png",
+    href: "/hbc/caffeine-dose",
+  },
+  {
+    number: "04",
+    name: "Pixel Apes",
+    kind: "DIGITAL CREW",
+    description: "The HBC crew, reimagined pixel by pixel.",
+    image: "/hbc/pixel-apes-flag.png",
+    href: "/hbc/pixel-apes",
+  },
+  {
+    number: "05",
+    name: "Wanderland",
+    kind: "OUTDOOR & ADVENTURE",
+    description: "The squad takes the long way out.",
+    image: "/hbc/wanderland-flag.png",
+    href: "/hbc/wanderland",
+  },
+];
+
 export default function HbcPage() {
   return (
     <main className={styles.page}>
@@ -67,14 +110,52 @@ export default function HbcPage() {
             coffee, adventure, gaming and beyond. HBC is not just about playing bola.
             It&apos;s about living it.
           </p>
-          <Link href="/hbc/caffeine-dose" className={styles.coffeeLink}>
-            CAFFEINE DOSE / BREW BY APES ↗
-          </Link>
         </div>
       </section>
 
+      {/* HBC SUB-BRANDS */}
+      <section className={styles.subBrands} aria-labelledby="subbrands-title">
+        <div className={styles.subBrandsHeading}>
+          <p className={styles.label}>HBC / THE WORLDS</p>
+          <h2 id="subbrands-title">One club. Many ways to live it.</h2>
+          <p>Meet the different sides of Hidup Bola Club, each carrying the same badge.</p>
+        </div>
 
+        <div className={styles.subBrandGrid}>
+          {subBrands.map((brand) => (
+            <Link className={styles.subBrandCard} href={brand.href} key={brand.number}>
+              <span className={styles.subBrandNumber}>{brand.number}</span>
+              <img
+                className={styles.subBrandFlag}
+                src={brand.image}
+                alt={`${brand.name} stand flag`}
+                width={1024}
+                height={1536}
+                loading="lazy"
+              />
+              <span className={styles.subBrandKind}>{brand.kind}</span>
+              <span className={styles.subBrandName}>{brand.name}</span>
+              <span className={styles.subBrandDescription}>{brand.description}</span>
+              <span className={styles.subBrandEnter}>EXPLORE WORLD <span aria-hidden="true">↗</span></span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
+      {/* CNY ARCHIVE */}
+      <section className={styles.cnyFeature} aria-labelledby="cny-feature-title">
+        <div className={styles.cnyFeatureArt}>
+          <img src="/hbc/cny/CNY-ape.png" alt="HBC Lunar New Year ape mascot" width={900} height={900} loading="lazy" />
+          <span lang="zh-Hant" aria-hidden="true">春</span>
+        </div>
+        <div className={styles.cnyFeatureCopy}>
+          <p className={styles.cnyFeatureEyebrow}>HBC / LUNAR ARCHIVE · ANNUAL SERIES</p>
+          <h2 id="cny-feature-title">Twelve signs.<br /><em>One club.</em></h2>
+          <p>Explore HBC’s Chinese New Year editions, zodiac artwork, and festive collections across the years.</p>
+          <Link href="/hbc/cny" className={styles.cnyFeatureLink}>ENTER THE CNY ARCHIVE <span aria-hidden="true">↗</span></Link>
+        </div>
+        <span className={styles.cnyFeatureSeal} aria-hidden="true">HBC · 新年</span>
+      </section>
   {/*Exhibition introduction section */}
   <section className={styles.exhibitionPreview}>
     <div className={styles.exhibitionAtmosphere} />
@@ -191,3 +272,4 @@ export default function HbcPage() {
     </main>
   );
 }
+

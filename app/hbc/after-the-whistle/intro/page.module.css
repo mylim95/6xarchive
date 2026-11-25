@@ -1,0 +1,57 @@
+.page {
+  --ivory: #eee9df;
+  position: relative; display: grid; min-height: 100svh; overflow: hidden; isolation: isolate;
+  background: #050407; color: var(--ivory);
+}
+.backdrop {
+  position: absolute; z-index: -2; inset: 0;
+  background-image: linear-gradient(90deg, rgba(4,3,7,.03), rgba(4,3,7,.12) 42%, rgba(4,3,7,.62) 62%, rgba(4,3,7,.82)), linear-gradient(0deg, rgba(4,3,7,.48), transparent 28% 78%, rgba(4,3,7,.35)), url("/hbc/after-the-whistle/intro-bg.jpg");
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.header, .footer { position: absolute; z-index: 2; right: clamp(1.25rem,5vw,5rem); left: clamp(1.25rem,5vw,5rem); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); }
+.header { top: clamp(1.25rem,3vw,2.6rem); }
+.brand { display: inline-flex; align-items: center; gap: .8rem; color: inherit; text-decoration: none; }
+.brandMark { display: block; width: 2.7rem; height: 2.7rem; object-fit: contain; }
+.brandName, .issue, .footer { font-size: .62rem; letter-spacing: .2em; }
+.brandName { font-weight: 500; }
+.issue { color: rgba(238,233,223,.58); }
+.content { align-self: center; justify-self: end; width: min(39vw,37rem); margin: 1rem clamp(2rem,9vw,9rem) 1rem 0; animation: arrive .9s cubic-bezier(.2,.72,.24,1) both; }
+.kicker { display: flex; align-items: center; gap: .7rem; margin: 0 0 1.6rem; color: #d1a3de; font: 500 .65rem/1.4 var(--font-mono); letter-spacing: .24em; }
+.kicker span { width: 1.6rem; height: 1px; background: #bb4bd1; box-shadow: 0 0 1rem #ba38d8; }
+.content h1 { margin: 0; color: #f1e9e7; font: 500 clamp(2.8rem,5.2vw,5.4rem)/.98 var(--font-display); letter-spacing: -.045em; text-shadow: 0 .3rem 2rem rgba(0,0,0,.7); }
+.content h1 em { color: #c9a4d5; font-weight: 400; }
+.copy { max-width: 33rem; margin: 1.6rem 0 0; color: rgba(238,233,223,.82); font: 400 clamp(.95rem,1.15vw,1.12rem)/1.8 var(--font-body); text-shadow: 0 1px 1.2rem rgba(0,0,0,.8); }
+.note { margin: 2rem 0 0; color: rgba(238,233,223,.54); font: 500 .58rem/1.6 var(--font-mono); letter-spacing: .17em; }
+.tunnelLink { position: absolute; z-index: 1; inset: 15% 51% 13% 3%; display: block; border-radius: 45% 36% 18% 18%; color: inherit; text-decoration: none; outline-offset: -5px; }
+.tunnelLabel { position: absolute; left: 50%; bottom: 8%; display: inline-flex; gap: .7rem; align-items: center; padding: .85rem 1rem; border: 1px solid rgba(222,165,239,.42); background: rgba(8,5,12,.72); color: #eee2f0; font: 500 .59rem/1 var(--font-mono); letter-spacing: .17em; opacity: 0; transform: translate(-50%,.35rem); transition: opacity 220ms ease, transform 220ms ease; white-space: nowrap; }
+.tunnelLabel span { color: #dc6be7; }
+.tunnelLink:hover .tunnelLabel, .tunnelLink:focus-visible .tunnelLabel { opacity: 1; transform: translate(-50%,0); }
+.footer { bottom: clamp(1.25rem,2.5vw,2.2rem); color: rgba(238,233,223,.58); }
+.footer a { color: inherit; text-decoration: none; transition: color 180ms ease; }
+.footer a:hover { color: var(--ivory); }
+@keyframes arrive { from { opacity: 0; translate: 0 .7rem; } to { opacity: 1; translate: 0 0; } }
+@media (max-width: 760px) {
+  .backdrop { background-image: linear-gradient(180deg,rgba(4,3,7,.14),rgba(4,3,7,.22) 30%,rgba(4,3,7,.86) 62%,#050407 100%),url("/hbc/after-the-whistle/intro-bg.jpg"); background-position: center,34% center; }
+  .header { right: 1.2rem; left: 1.2rem; }
+  .brand { gap: .55rem; }
+  .brandMark { width: 2.25rem; height: 2.25rem; }
+  .brandName { font-size: .53rem; letter-spacing: .12em; }
+  .issue { display: none; }
+  .content { align-self: end; justify-self: stretch; width: auto; margin: 0 1.35rem 7.2rem; }
+  .kicker { margin-bottom: 1rem; font-size: .57rem; letter-spacing: .18em; }
+  .content h1 { font-size: clamp(2.65rem,11vw,4.2rem); }
+  .copy { max-width: 36rem; margin-top: 1rem; font-size: .94rem; line-height: 1.65; }
+  .note { margin-top: 1.2rem; font-size: .52rem; letter-spacing: .12em; }
+  .tunnelLink { inset: 12% 8% 47%; border-radius: 48% 44% 16% 16%; }
+  .tunnelLabel { bottom: 4%; opacity: 1; transform: translate(-50%,0); }
+  .footer { right: 1.25rem; bottom: 1.1rem; left: 1.25rem; font-size: .53rem; letter-spacing: .13em; }
+}
+@media (max-width: 390px) {
+  .content { margin-right: 1.1rem; margin-left: 1.1rem; margin-bottom: 6.7rem; }
+  .copy { font-size: .88rem; }
+  .tunnelLabel { font-size: .53rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .content { animation: none; }
+  .tunnelLabel, .footer a { transition: none; }
+}

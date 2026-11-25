@@ -127,8 +127,129 @@
   letter-spacing: -0.02em;
 }
 .lede { max-width: 38rem; margin: 1.6rem 0 0; color: #4c4636; font-size: 0.95rem; line-height: 1.85; }
-.coffeeLink { display: inline-block; margin-top: 1.8rem; padding-bottom: .4rem; border-bottom: 1px solid rgba(122, 107, 69, .45); color: #6f5935; text-decoration: none; font: .62rem var(--font-mono); letter-spacing: .12em; transition: color 180ms ease, border-color 180ms ease; }
-.coffeeLink:hover { color: #a84a2e; border-color: #a84a2e; }
+
+/* HBC SUB-BRANDS */
+.subBrands {
+  padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.25rem, 6vw, 6rem);
+  background: #f6f1e6;
+}
+.subBrandsHeading { max-width: 46rem; margin: 0 auto clamp(3rem, 6vw, 5rem); text-align: center; }
+.subBrandsHeading h2 {
+  margin: 1rem 0 0;
+  color: #17150f;
+  font: 400 clamp(2.25rem, 4.5vw, 4rem)/1.02 var(--font-display);
+  letter-spacing: -.025em;
+}
+.subBrandsHeading > p:last-child {
+  max-width: 31rem;
+  margin: 1rem auto 0;
+  color: #696052;
+  font-size: .88rem;
+  line-height: 1.7;
+}
+.subBrandGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 2.5rem) 1rem;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+.subBrandCard {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: .7rem .65rem 1.2rem;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  outline-offset: .35rem;
+}
+.subBrandCard:nth-child(4) { grid-column: 2 / span 2; }
+.subBrandCard:nth-child(5) { grid-column: 4 / span 2; }
+.subBrandNumber {
+  align-self: flex-start;
+  color: #98835b;
+  font: .65rem var(--font-terminal);
+  letter-spacing: .08em;
+}
+.subBrandFlag {
+  display: block;
+  width: min(100%, 16rem);
+  height: auto;
+  margin: -.2rem auto .4rem;
+  object-fit: contain;
+  filter: brightness(1) drop-shadow(0 18px 22px rgba(25, 20, 12, .12));
+  transition: filter 360ms ease;
+}
+.subBrandCard:hover .subBrandFlag, .subBrandCard:focus-visible .subBrandFlag {
+  filter:
+    brightness(1.08)
+    drop-shadow(0 0 8px rgba(238, 203, 125, .62))
+    drop-shadow(0 0 22px rgba(203, 151, 73, .34))
+    drop-shadow(0 18px 22px rgba(25, 20, 12, .12));
+}
+.subBrandKind {
+  margin-top: .15rem;
+  color: #897750;
+  font: .54rem var(--font-mono);
+  letter-spacing: .13em;
+}
+.subBrandName {
+  margin-top: .55rem;
+  color: #211a13;
+  font: 400 clamp(1.25rem, 1.8vw, 1.55rem)/1.1 var(--font-display);
+}
+.subBrandDescription {
+  max-width: 17rem;
+  margin-top: .65rem;
+  color: #766d60;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+.subBrandEnter {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 1rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid rgba(122, 107, 69, .42);
+  color: #6f5935;
+  font: .55rem var(--font-mono);
+  letter-spacing: .12em;
+}
+
+/* CNY ARCHIVE */
+.cnyFeature {
+  position: relative;
+  min-height: 32rem;
+  display: grid;
+  grid-template-columns: minmax(230px, .8fr) 1.2fr;
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 9vw, 10rem);
+  overflow: hidden;
+  color: #fff0d4;
+  background:
+    radial-gradient(ellipse at 22% 48%, #b3392a 0, transparent 44%),
+    linear-gradient(115deg, #65151a, #8b1c20 58%, #4f1118);
+}
+.cnyFeature::before { content: ""; position: absolute; inset: 1rem; border: 1px solid rgba(239, 195, 110, .32); pointer-events: none; }
+.cnyFeatureArt { position: relative; display: grid; place-items: center; min-height: 19rem; }
+.cnyFeatureArt::before { content: ""; position: absolute; width: min(29vw, 19rem); aspect-ratio: 1; border: 1px solid rgba(239, 195, 110, .45); border-radius: 50%; box-shadow: 0 0 0 1.5rem rgba(239, 195, 110, .08), 0 0 0 4rem rgba(239, 195, 110, .04); }
+.cnyFeatureArt img { position: relative; z-index: 1; display: block; width: min(100%, 19rem); height: auto; filter: drop-shadow(0 1rem 1.4rem rgba(30, 5, 7, .35)); }
+.cnyFeatureArt > span { position: absolute; z-index: 2; right: 1%; bottom: 2%; color: #f3c568; font: 500 clamp(2rem, 4vw, 3.5rem)/1 "Noto Serif TC", "Songti TC", serif; writing-mode: vertical-rl; }
+.cnyFeatureCopy { position: relative; z-index: 1; max-width: 46rem; }
+.cnyFeatureEyebrow { margin: 0 0 1.4rem; color: #e6bd71; font: .62rem var(--font-mono); letter-spacing: .16em; }
+.cnyFeatureCopy h2 { margin: 0; color: #fff0d4; font: 400 clamp(3rem, 7vw, 6.5rem)/.94 var(--font-display); letter-spacing: -.035em; }
+.cnyFeatureCopy h2 em { color: #f1c362; font-style: italic; }
+.cnyFeatureCopy > p:not(.cnyFeatureEyebrow) { max-width: 31rem; margin: 1.5rem 0 0; color: rgba(255, 240, 212, .72); font-size: .92rem; line-height: 1.8; }
+.cnyFeatureLink { display: inline-flex; align-items: center; gap: 1.5rem; margin-top: 2rem; padding: .9rem 1.1rem; border: 1px solid #e6bd71; color: #fff0d4; text-decoration: none; font: .58rem var(--font-mono); letter-spacing: .12em; transition: color .2s ease, background .2s ease; }
+.cnyFeatureLink:hover { color: #65151a; background: #e6bd71; }
+.cnyFeatureLink span { color: #f1c362; font-size: .9rem; }
+.cnyFeatureLink:hover span { color: inherit; }
+.cnyFeatureSeal { position: absolute; right: 2.5rem; bottom: 2rem; color: rgba(239, 195, 110, .5); font: .55rem var(--font-mono); letter-spacing: .15em; }
 
 /* CREST */
 .crest { padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 6vw, 6rem); background: #f6f1e6; }
@@ -269,6 +390,10 @@
 }
 
 @media (max-width: 760px) {
+  .subBrandGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.8rem .7rem; }
+  .subBrandCard:nth-child(4) { grid-column: 1; }
+  .subBrandCard:nth-child(5) { grid-column: 2; }
+  .subBrandFlag { width: min(100%, 14rem); }
   .exhibitionPreview {
     min-height: 520px;
   }
@@ -350,5 +475,19 @@
 @media (max-width: 460px) {
   .header { grid-template-columns: 1fr auto; }
   .header p { display: none; }
+  .subBrandGrid { grid-template-columns: 1fr; max-width: 22rem; }
+  .subBrandCard, .subBrandCard:nth-child(4), .subBrandCard:nth-child(5) { grid-column: 1; }
+  .subBrandFlag { width: min(100%, 15rem); }
   .footer { flex-direction: column; }
+}
+
+@media (max-width: 760px) {
+  .cnyFeature { min-height: 0; grid-template-columns: 1fr; gap: 1.5rem; padding: 4.5rem 2rem; }
+  .cnyFeatureArt { min-height: 16rem; }
+  .cnyFeatureArt::before { width: min(62vw, 16rem); }
+  .cnyFeatureArt img { width: min(75vw, 16rem); }
+  .cnyFeatureCopy { text-align: center; margin-inline: auto; }
+  .cnyFeatureEyebrow { line-height: 1.6; }
+  .cnyFeatureCopy > p:not(.cnyFeatureEyebrow) { margin-inline: auto; }
+  .cnyFeatureSeal { right: 1.5rem; bottom: 1.25rem; }
 }
