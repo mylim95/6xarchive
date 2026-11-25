@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function GuardiansOfAsiaPage() {
@@ -31,9 +32,9 @@ export default function GuardiansOfAsiaPage() {
           The forgotten guardians are waiting.
         </p>
 
-        <button className={styles.enter}>
-          ENTER THE WORLD <span>↗</span>
-        </button>
+        <Link className={styles.enter} href="/hbc/guardians-of-asia/exhibition">
+          ENTER THE EXHIBITION <span>↗</span>
+        </Link>
       </section>
 
       <footer className={styles.bottom}>

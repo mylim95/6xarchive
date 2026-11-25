@@ -83,6 +83,10 @@
 }
 
 .enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
   pointer-events: auto;
   margin-top: 40px;
   padding: 16px 26px;
